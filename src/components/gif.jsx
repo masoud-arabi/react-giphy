@@ -5,13 +5,15 @@ class gif extends Component{
     //     super.props;
     //     this.props
     // }
-    handleClick = (e) => {
-       return `${this.props.selectedGifFunc(e.target.src)}`;
+    handleClick = () => {
+        if (this.props.selectGif) {
+        this.props.selectedGif(this.props.id);
+        }
     }
     render(){
-        // const src = `https://media4.giphy.com/media/${this.props.id}/giphy.gif`;
+        const src = `https://media4.giphy.com/media/${this.props.id}/giphy.gif`;
         return(
-            <img src={this.handleClick} alt="" className="gif" onClick={this.handleClick}/>
+            <img src={src} alt="" className="gif" onClick={this.handleClick}/>
         );
     }
 }

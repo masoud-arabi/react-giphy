@@ -14,7 +14,7 @@ class App extends Component{
     }
     state = {
         gifs: [],
-        selectedGif: "9PlRQ45jVjFuTgw28E"
+        selectedGifId: "9PlRQ45jVjFuTgw28E"
     };
     search=(query)=>{
         giphyApi('Y7aCd9sFS3oEbwKsAhMVqMZDuQDKjkdk').search({
@@ -28,9 +28,9 @@ class App extends Component{
         });
 
     }
-    selectedGifFunc=()=>{
+    selectedGif = (id) => {
         this.setState({
-             selectedGif: `${this.Gif.handleClick}`
+            selectedGifId: id
         });
     }
     render(){
@@ -43,11 +43,11 @@ class App extends Component{
                 <div className="left-scene">
                     <SearchBar searchFunction={this.search}/>
                     <div className="selected-gif">
-                        <Gif id={this.selectedGifFunc}/>
+                        <Gif id={this.state.selectedGifId}/>
                     </div>
                 </div>
                 <div className="right-scene">
-                    <GifList gifs={this.state.gifs}/>
+                    <GifList gifs={this.state.gifs} selectedGif={this.selectedGif}/>
                 </div>
             </div>
         );
