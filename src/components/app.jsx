@@ -10,11 +10,11 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state ;
-        this.search("disney");
+       // this.search("disney");
     }
     state = {
         gifs: [],
-        selectedGifId: "9PlRQ45jVjFuTgw28E"
+        selectedGifId: null //"9PlRQ45jVjFuTgw28E"
     };
     search=(query)=>{
         giphyApi('Y7aCd9sFS3oEbwKsAhMVqMZDuQDKjkdk').search({
